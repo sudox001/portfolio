@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import React from 'react'
 
 export interface ToastProps {
   title: string
@@ -29,4 +30,3 @@ export function useToast() {
     ),
   }
 }
-
