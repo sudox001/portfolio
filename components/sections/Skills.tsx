@@ -1,7 +1,7 @@
 'use client'
 
 import { motion } from "framer-motion"
-import { SkillsSectionProps } from "@/types"
+import { SkillsSectionProps } from "../../types"
 
 const container = {
   hidden: { opacity: 0 },
@@ -48,7 +48,6 @@ const getProgressWidth = (level: string) => {
 }
 
 export function Skills({ skills }: SkillsSectionProps) {
-  // Group skills by category
   const groupedSkills = skills.reduce((acc, skill) => {
     if (!acc[skill.category]) {
       acc[skill.category] = []
@@ -58,22 +57,22 @@ export function Skills({ skills }: SkillsSectionProps) {
   }, {} as Record<string, typeof skills>)
 
   return (
-    <section id="skills" className="w-full max-w-5xl mx-auto py-20 px-4">
+    <section id="skills" className="w-full max-w-5xl mx-auto py-12 sm:py-16 md:py-20 px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.5 }}
-        className="space-y-12"
+        className="space-y-8 sm:space-y-12"
       >
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">Skills</h2>
-          <p className="text-gray-300 max-w-2xl mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">Skills</h2>
+          <p className="text-gray-300 max-w-2xl mx-auto text-sm sm:text-base">
             Here are the technologies and tools I work with
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {Object.entries(groupedSkills).map(([category, categorySkills], categoryIndex) => (
             <motion.div
               key={category}
@@ -82,23 +81,24 @@ export function Skills({ skills }: SkillsSectionProps) {
               whileInView="show"
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delayChildren: categoryIndex * 0.2 }}
-              className="space-y-4"
+              className="space-y-3 sm:space-y-4"
             >
               <motion.h3 
                 variants={item}
-                className="text-xl font-semibold text-white capitalize mb-4"
+                className="text-lg sm:text-xl font-semibold text-white capitalize mb-3 sm:mb-4"
               >
                 {category}
               </motion.h3>
-              <div className="space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 {categorySkills.map((skill, index) => (
                   <motion.div
                     key={skill.name}
                     variants={item}
                     custom={index}
                     className={`
-                      skill-card bg-gray-800/50 rounded-lg p-4 backdrop-blur-sm 
-                      hover:bg-gray-800/70
+                      skill-card bg-gray-800/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm 
+                      hover:bg-gray-800/70 transition-all duration-300
+                      border border-gray-700/30 hover:border-gray-600/50
                       ${skill.category === 'frontend' 
                         ? 'hover:shadow-blue' 
                         : skill.category === 'backend'
@@ -107,12 +107,12 @@ export function Skills({ skills }: SkillsSectionProps) {
                     `}
                   >
                     <div className="flex justify-between items-center mb-2">
-                      <span className="text-white font-medium">{skill.name}</span>
-                      <span className="text-sm text-gray-400 capitalize">
+                      <span className="text-white font-medium text-sm sm:text-base">{skill.name}</span>
+                      <span className="text-xs sm:text-sm text-gray-400 capitalize">
                         {skill.level}
                       </span>
                     </div>
-                    <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
+                    <div className="h-1.5 sm:h-2 bg-gray-700 rounded-full overflow-hidden">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: getProgressWidth(skill.level) }}
