@@ -9,7 +9,9 @@ const container = {
     opacity: 1,
     transition: {
       staggerChildren: 0.1,
-      delayChildren: 0.2
+      delayChildren: 0.3,
+      duration: 0.5,
+      ease: "easeOut"
     }
   }
 }
@@ -20,9 +22,8 @@ const item = {
     opacity: 1, 
     y: 0,
     transition: {
-      type: "spring",
-      stiffness: 100,
-      damping: 10
+      duration: 0.5,
+      ease: "easeOut"
     }
   }
 }
@@ -62,7 +63,7 @@ export function Skills({ skills }: SkillsSectionProps) {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
         className="space-y-8 sm:space-y-12"
       >
         <div className="text-center">
@@ -80,7 +81,6 @@ export function Skills({ skills }: SkillsSectionProps) {
               initial="hidden"
               whileInView="show"
               viewport={{ once: true, margin: "-100px" }}
-              transition={{ delayChildren: categoryIndex * 0.2 }}
               className="space-y-3 sm:space-y-4"
             >
               <motion.h3 
@@ -97,7 +97,7 @@ export function Skills({ skills }: SkillsSectionProps) {
                     custom={index}
                     className={`
                       skill-card bg-gray-800/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm 
-                      hover:bg-gray-800/70 transition-all duration-300
+                      hover:bg-gray-800/70 transition-colors duration-300
                       border border-gray-700/30 hover:border-gray-600/50
                       ${skill.category === 'frontend' 
                         ? 'hover:shadow-blue' 
@@ -114,13 +114,17 @@ export function Skills({ skills }: SkillsSectionProps) {
                     </div>
                     <div className="h-1.5 sm:h-2 bg-gray-700 rounded-full overflow-hidden">
                       <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: getProgressWidth(skill.level) }}
+                        initial={{ width: 0, opacity: 0 }}
+                        whileInView={{ 
+                          width: getProgressWidth(skill.level),
+                          opacity: 1
+                        }}
                         viewport={{ once: true }}
                         transition={{ 
                           duration: 0.8,
-                          delay: 0.2 + (index * 0.1),
-                          ease: [0.4, 0, 0.2, 1]
+                          delay: 0.3 + (index * 0.1),
+                          ease: [0.4, 0, 0.2, 1],
+                          opacity: { duration: 0.3 }
                         }}
                         className={`h-full bg-gradient-to-r ${categoryColors[skill.category]}`}
                       />
