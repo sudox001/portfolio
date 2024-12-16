@@ -49,94 +49,10 @@
 .floating-shape {
   position: relative;
   transform-style: preserve-3d;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-/* Floating animations */
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
-  }
-  25% {
-    transform: translateY(-10px) translateX(5px);
-  }
-  50% {
-    transform: translateY(0) translateX(10px);
-  }
-  75% {
-    transform: translateY(10px) translateX(5px);
-  }
-}
-
-@keyframes float-reverse {
-  0%, 100% {
-    transform: translateY(0) translateX(0) rotate(45deg);
-  }
-  25% {
-    transform: translateY(10px) translateX(-5px) rotate(45deg);
-  }
-  50% {
-    transform: translateY(0) translateX(-10px) rotate(45deg);
-  }
-  75% {
-    transform: translateY(-10px) translateX(-5px) rotate(45deg);
-  }
-}
-
-@keyframes float-delayed {
-  0%, 100% {
-    transform: translateY(0) translateX(0);
-  }
-  25% {
-    transform: translateY(10px) translateX(-5px);
-  }
-  50% {
-    transform: translateY(0) translateX(-10px);
-  }
-  75% {
-    transform: translateY(-10px) translateX(-5px);
-  }
-}
-
-@keyframes float-slow {
-  0%, 100% {
-    transform: translateY(0) translateX(0) rotate(-12deg);
-  }
-  25% {
-    transform: translateY(-15px) translateX(7px) rotate(-12deg);
-  }
-  50% {
-    transform: translateY(0) translateX(15px) rotate(-12deg);
-  }
-  75% {
-    transform: translateY(15px) translateX(7px) rotate(-12deg);
-  }
-}
-
-.animate-float {
-  animation: float 8s ease-in-out infinite;
-}
-
-.animate-float-reverse {
-  animation: float-reverse 10s ease-in-out infinite;
-}
-
-.animate-float-delayed {
-  animation: float-delayed 12s ease-in-out infinite;
-}
-
-.animate-float-slow {
-  animation: float-slow 15s ease-in-out infinite;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+  opacity: 1;
 }
 
 .floating-shape::before {
@@ -178,6 +94,115 @@
   opacity: 1;
 }
 
+/* Floating animations */
+@keyframes float {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(5px, -10px, 0);
+  }
+  50% {
+    transform: translate3d(10px, 0, 0);
+  }
+  75% {
+    transform: translate3d(5px, 10px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes float-reverse {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(45deg);
+  }
+  25% {
+    transform: translate3d(-5px, 10px, 0) rotate(45deg);
+  }
+  50% {
+    transform: translate3d(-10px, 0, 0) rotate(45deg);
+  }
+  75% {
+    transform: translate3d(-5px, -10px, 0) rotate(45deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(45deg);
+  }
+}
+
+@keyframes float-delayed {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(-5px, 10px, 0);
+  }
+  50% {
+    transform: translate3d(-10px, 0, 0);
+  }
+  75% {
+    transform: translate3d(-5px, -10px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-12deg);
+  }
+  25% {
+    transform: translate3d(7px, -15px, 0) rotate(-12deg);
+  }
+  50% {
+    transform: translate3d(15px, 0, 0) rotate(-12deg);
+  }
+  75% {
+    transform: translate3d(7px, 15px, 0) rotate(-12deg);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-12deg);
+  }
+}
+
+.animate-float {
+  animation: float 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-float-reverse {
+  animation: float-reverse 8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 10s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 12s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Custom animations */
+@keyframes glow {
+  0% {
+    opacity: 0.9;
+    filter: brightness(1) saturate(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.1) saturate(1.05);
+  }
+  100% {
+    opacity: 0.9;
+    filter: brightness(1) saturate(1);
+  }
+}
+
+.animate-glow {
+  animation: glow 4s ease-in-out infinite;
+}
+
 /* Skill card animations */
 .skill-card {
   transform: translateZ(0);
@@ -203,26 +228,6 @@
 .hover\:shadow-orange:hover {
   box-shadow: 0 0 25px rgba(249, 115, 22, 0.2),
               0 0 10px rgba(249, 115, 22, 0.1);
-}
-
-/* Custom animations */
-@keyframes glow {
-  0% {
-    opacity: 0.9;
-    filter: brightness(1) saturate(1);
-  }
-  50% {
-    opacity: 1;
-    filter: brightness(1.1) saturate(1.05);
-  }
-  100% {
-    opacity: 0.9;
-    filter: brightness(1) saturate(1);
-  }
-}
-
-.animate-glow {
-  animation: glow 4s ease-in-out infinite;
 }
 
 /* Mouse follow effect */

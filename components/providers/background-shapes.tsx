@@ -14,7 +14,7 @@ export function BackgroundShapes() {
     <motion.div 
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, ease: "easeOut" }}
+      transition={{ duration: 0.5 }}
       className="fixed inset-0 -z-10 overflow-hidden"
     >
       <div 
@@ -26,103 +26,58 @@ export function BackgroundShapes() {
       >
         <div className="absolute inset-0">
           {/* Top left purple shape */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="floating-shape absolute top-[15%] left-[20%] w-32 h-32 rounded-2xl animate-float"
-          >
+          <div className="floating-shape absolute top-[15%] left-[20%] w-32 h-32 rounded-2xl animate-float">
             <div className="absolute inset-0 bg-gradient-subtle from-purple-500/50 to-pink-500/50 rounded-2xl" />
             <div className="absolute inset-0 bg-glass-gradient backdrop-blur-sm rounded-2xl animate-glow" />
-          </motion.div>
+          </div>
 
           {/* Top right blue shape */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="floating-shape absolute top-[25%] right-[20%] w-40 h-40 rounded-full animate-float-delayed"
-          >
+          <div className="floating-shape absolute top-[25%] right-[20%] w-40 h-40 rounded-full animate-float-delayed">
             <div className="absolute inset-0 bg-gradient-subtle from-blue-500/50 to-cyan-500/50 rounded-full" />
             <div className="absolute inset-0 bg-glass-gradient backdrop-blur-sm rounded-full animate-glow" />
-          </motion.div>
+          </div>
 
           {/* Bottom left indigo shape */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            className="floating-shape absolute bottom-[20%] left-[25%] w-36 h-36 animate-float-reverse"
-          >
+          <div className="floating-shape absolute bottom-[20%] left-[25%] w-36 h-36 animate-float-reverse">
             <div className="absolute inset-0 bg-gradient-subtle from-indigo-500/50 to-violet-500/50" />
             <div className="absolute inset-0 bg-glass-gradient backdrop-blur-sm animate-glow" />
-          </motion.div>
+          </div>
 
           {/* Bottom right teal shape */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="floating-shape absolute top-[60%] right-[30%] w-28 h-28 rounded-lg animate-float-slow"
-          >
+          <div className="floating-shape absolute top-[60%] right-[30%] w-28 h-28 rounded-lg animate-float-slow">
             <div className="absolute inset-0 bg-gradient-subtle from-teal-500/50 to-emerald-500/50 rounded-lg" />
             <div className="absolute inset-0 bg-glass-gradient backdrop-blur-sm rounded-lg animate-glow" />
-          </motion.div>
+          </div>
 
           {/* Center accent shape */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="floating-shape absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-44 h-44 rounded-[2rem] animate-float"
-          >
+          <div className="floating-shape absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2 w-44 h-44 rounded-[2rem] animate-float">
             <div className="absolute inset-0 bg-gradient-subtle from-fuchsia-500/40 to-rose-500/40 rounded-[2rem]" />
             <div className="absolute inset-0 bg-glass-gradient backdrop-blur-sm rounded-[2rem] animate-glow" />
-          </motion.div>
+          </div>
 
           {/* New small orange shape */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.7 }}
-            className="floating-shape absolute top-[20%] right-[35%] w-20 h-20 rounded-lg animate-float-delayed"
-          >
+          <div className="floating-shape absolute top-[20%] right-[35%] w-20 h-20 rounded-lg animate-float-delayed">
             <div className="absolute inset-0 bg-gradient-subtle from-orange-500/40 to-amber-500/40 rounded-lg" />
             <div className="absolute inset-0 bg-glass-gradient backdrop-blur-sm rounded-lg animate-glow" />
-          </motion.div>
+          </div>
 
           {/* New tiny red shape */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-            className="floating-shape absolute bottom-[35%] right-[25%] w-16 h-16 rounded-full animate-float"
-          >
+          <div className="floating-shape absolute bottom-[35%] right-[25%] w-16 h-16 rounded-full animate-float">
             <div className="absolute inset-0 bg-gradient-subtle from-red-500/40 to-rose-500/40 rounded-full" />
             <div className="absolute inset-0 bg-glass-gradient backdrop-blur-sm rounded-full animate-glow" />
-          </motion.div>
+          </div>
 
           {/* New small lime shape */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.9 }}
-            className="floating-shape absolute top-[65%] left-[15%] w-24 h-24 rounded-[1.5rem] animate-float-slow"
-          >
+          <div className="floating-shape absolute top-[65%] left-[15%] w-24 h-24 rounded-[1.5rem] animate-float-slow">
             <div className="absolute inset-0 bg-gradient-subtle from-lime-500/40 to-green-500/40 rounded-[1.5rem]" />
             <div className="absolute inset-0 bg-glass-gradient backdrop-blur-sm rounded-[1.5rem] animate-glow" />
-          </motion.div>
+          </div>
 
           {/* New tiny sky shape */}
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.5, delay: 1 }}
-            className="floating-shape absolute top-[30%] left-[40%] w-12 h-12 rounded-lg animate-float-delayed"
-          >
+          <div className="floating-shape absolute top-[30%] left-[40%] w-12 h-12 rounded-lg animate-float-delayed">
             <div className="absolute inset-0 bg-gradient-subtle from-sky-500/40 to-blue-500/40 rounded-lg" />
             <div className="absolute inset-0 bg-glass-gradient backdrop-blur-sm rounded-lg animate-glow" />
-          </motion.div>
+          </div>
         </div>
       </div>
     </motion.div>
