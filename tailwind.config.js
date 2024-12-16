@@ -58,34 +58,50 @@ module.exports = {
           to: { height: 0 },
         },
         float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
+          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+          '50%': { transform: 'translateY(-20px) rotate(2deg)' },
         },
         'float-delayed': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-15px)' },
+          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+          '50%': { transform: 'translateY(-15px) rotate(-2deg)' },
         },
         'float-reverse': {
           '0%, 100%': { transform: 'translateY(0) rotate(45deg)' },
-          '50%': { transform: 'translateY(20px) rotate(45deg)' },
+          '50%': { transform: 'translateY(20px) rotate(43deg)' },
         },
         'float-slow': {
           '0%, 100%': { transform: 'translateY(0) rotate(-12deg)' },
-          '50%': { transform: 'translateY(-10px) rotate(-12deg)' },
+          '50%': { transform: 'translateY(-10px) rotate(-14deg)' },
+        },
+        'float-subtle': {
+          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+          '50%': { transform: 'translateY(-8px) rotate(1deg)' },
+        },
+        'float-micro': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-5px)' },
         },
         glow: {
-          '0%, 100%': { filter: 'brightness(1) blur(10px)' },
-          '50%': { filter: 'brightness(1.2) blur(8px)' },
+          '0%, 100%': { 
+            filter: 'brightness(1) blur(10px)',
+            opacity: 0.8
+          },
+          '50%': { 
+            filter: 'brightness(1.2) blur(8px)',
+            opacity: 1
+          },
         }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "float": "float 6s ease-in-out infinite",
-        "float-delayed": "float-delayed 7s ease-in-out infinite 1s",
-        "float-reverse": "float-reverse 8s ease-in-out infinite 2s",
-        "float-slow": "float-slow 9s ease-in-out infinite 3s",
-        "glow": "glow 4s ease-in-out infinite",
+        "float": "float 6s cubic-bezier(0.37, 0, 0.63, 1) infinite",
+        "float-delayed": "float-delayed 7s cubic-bezier(0.37, 0, 0.63, 1) infinite 1s",
+        "float-reverse": "float-reverse 8s cubic-bezier(0.37, 0, 0.63, 1) infinite 2s",
+        "float-slow": "float-slow 9s cubic-bezier(0.37, 0, 0.63, 1) infinite 3s",
+        "float-subtle": "float-subtle 5s cubic-bezier(0.37, 0, 0.63, 1) infinite",
+        "float-micro": "float-micro 4s cubic-bezier(0.37, 0, 0.63, 1) infinite",
+        "glow": "glow 4s cubic-bezier(0.37, 0, 0.63, 1) infinite",
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
